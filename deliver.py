@@ -1,7 +1,7 @@
 class Driver:
   
-  def __init__(self,worker_Id, name, start_city):
-      self.worker_Id= worker_Id
+  def __init__(self,driver_Id, name, start_city):
+      self.driver_Id= driver_Id
       self.name= name
       self.start_city= start_city
 
@@ -27,9 +27,34 @@ class WeDeliver:
     if choice == "1":
       self.driversMenu()
     elif choice == "2":
-      self.driversMenu()
+      self.citiesMenu()
     elif choice == "3":
       print("exit system, Goodbye!")
     else:
       print("Invalid choice, please try again")
     
+   #The driversMenu:
+  def driversMenu():
+    while True:
+      print("Enter:")
+      print("1.To view all the drivers")
+      print("2.To add a driver")
+      print("3.To go back to main menu")
+
+      choix=input()
+
+      if choix == "1":
+        self.view_all_drivers()
+      elif choix == "2":
+        self.add_driver()
+      elif choix == "3":
+          break
+      else:
+          print("Invalid choice, please try again.")
+  
+  def view_all_drivers(self):
+        print("\nList of all drivers:")
+        if not self.drivers:
+            print("No drivers in the system.")
+        for driver in self.drivers:
+            print(driver)
